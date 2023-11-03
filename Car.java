@@ -1,80 +1,72 @@
 import java.awt.*;
 
-public class Car{
-
-    public boolean turboOn;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-
-    public Car(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-        turboOn = false;
-        modelName = "Saab95";
-        stopEngine();
+abstract public class Car implements Movable{
+    protected int nrDoors; // Number of doors on the car
+    protected double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    protected Color color; // Color of the car
+    protected String modelName; // The car model name
+    protected double[] position = new double[2];
+    protected double direction = 0;
+    public Car(double[] position){
+        this.position = position;
     }
-
-    public int getNrDoors(){
+    public double[] getPosition(){
+        return position;
+    }
+    public int getNrDoors() {
         return nrDoors;
     }
-    public double getEnginePower(){
+
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Color clr){
+    protected void setColor(Color clr) {
         color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
-    public void setTurboOn(){
-        turboOn = true;
-    }
+    abstract public double speedFactor();
 
-    public void setTurboOff(){
-        turboOn = false;
-    }
+    abstract protected void incrementSpeed(double amount);
 
-    public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
-    }
-
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
+    abstract protected void decrementSpeed(double amount);
 
     // TODO fix this method according to lab pm
-    public void gas(double amount){
+    public void gas(double amount) {
         incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
-    public void brake(double amount){
+    public void brake(double amount) {
         decrementSpeed(amount);
+    }
+    public void move(){
+        position[0] += currentSpeed * Math.cos(direction);
+        position[1] += currentSpeed * Math.sin(direction);
+    }
+    public void turnLeft(){
+        direction += Math.PI/8;
+
+    }
+    public void turnRight(){
+        direction -= Math.PI/8;
     }
 }
 
