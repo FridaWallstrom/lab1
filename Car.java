@@ -7,10 +7,12 @@ abstract public class Car implements Movable{
     protected Color color; // Color of the car
     protected String modelName; // The car model name
     protected double[] position = new double[2];
-    protected double direction = 0;
+    protected double direction;
+
     public Car(double[] position){
         this.position = position;
     }
+
     public double[] getPosition(){
         return position;
     }
@@ -44,18 +46,21 @@ abstract public class Car implements Movable{
 
     abstract public double speedFactor();
 
-    abstract protected void incrementSpeed(double amount);
-
-    abstract protected void decrementSpeed(double amount);
-
-    // TODO fix this method according to lab pm
-    public void gas(double amount) {
-        incrementSpeed(amount);
+    protected double incrementSpeed(double amount){
+        return getCurrentSpeed() + speedFactor() * amount;
     }
 
-    // TODO fix this method according to lab pm
+
+    protected double decrementSpeed(double amount){
+        return getCurrentSpeed() - speedFactor() * amount;
+    }
+
+    public void gas(double amount) {
+        currentSpeed = Math.min(incrementSpeed(amount), enginePower);
+    }
+
     public void brake(double amount) {
-        decrementSpeed(amount);
+        currentSpeed = Math.max(decrementSpeed(amount), 0);
     }
     public void move(){
         position[0] += currentSpeed * Math.cos(direction);
