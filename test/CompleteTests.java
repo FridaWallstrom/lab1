@@ -89,7 +89,7 @@ public class CompleteTests{
     @Test
     public void testTurnLeft(){
         volvo.turnLeft();
-        assertEquals(volvo.direction,Math.PI/2, 0);
+        assertEquals(volvo.direction,Math.PI/2, 0); // flippat
     }
 
     @Test

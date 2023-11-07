@@ -67,11 +67,10 @@ abstract public class Car implements Movable{
         position[1] += currentSpeed * Math.sin(direction);
     }
     public void turnLeft(){
-        direction += Math.PI/8;
-
+        direction += Math.PI/2;
     }
     public void turnRight(){
-        direction -= Math.PI/8;
+        direction -= Math.PI/2;
     }
 }
 
