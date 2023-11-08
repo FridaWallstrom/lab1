@@ -164,5 +164,24 @@ public class CompleteTests{
         assertTrue(volvo.getCurrentSpeed() >= 0);
     }
 
+    @Test
+    public void testGasCantLowerSpeed(){
+        for (double i = 0; i <= 1; i += 0.1) {
+            volvo.startEngine();
+            double init_spd = volvo.getCurrentSpeed();
+            volvo.gas(i);
+            assertTrue(init_spd <= volvo.getCurrentSpeed());
+        }
+    }
+
+    @Test
+    public void testBrakeCantIncreaseSpeed(){
+        for (double i = 0; i <= 1; i += 0.1) {
+            volvo.startEngine();
+            double init_spd = volvo.getCurrentSpeed();
+            volvo.brake(i);
+            assertTrue(init_spd >= volvo.getCurrentSpeed());
+        }
+    }
 
 }
