@@ -8,27 +8,27 @@ abstract public class Car implements Movable{
     /**
      * The number of doors on the car
      */
-    protected int nrDoors;
+    private final int nrDoors;
     /**
      * The engine power of the car
      */
-    protected double enginePower;
+    protected final double enginePower;
     /**
      * The current speed of the car
      */
-    protected double currentSpeed;
+    private double currentSpeed;
     /**
      * The color of the car
      */
-    protected Color color;
+    private Color color;
     /**
      * The car model name
      */
-    protected String modelName;
+    private final String modelName;
     /**
      * The position of the car
      */
-    protected double[] position;
+    private double[] position;
     /**
      * The direction of the car
      */
@@ -37,14 +37,18 @@ abstract public class Car implements Movable{
     /**
      * The constructor of the class
      */
-    public Car(double[] position) {
+    public Car(double[] position, int nrDoors, Color color, double enginePower, String modelName) {
         this.position = position;
+        this.nrDoors = nrDoors;
+        this.color = color;
+        this.enginePower = enginePower;
+        this.modelName = modelName;
     }
 
     /**
      *  Getters:
      */
-     public double[] getPosition() {
+    public double[] getPosition() {
         return position;
     }
 
@@ -60,9 +64,12 @@ abstract public class Car implements Movable{
         return currentSpeed;
     }
 
-
     public Color getColor() {
         return color;
+    }
+
+    public String getModelName() {
+        return modelName;
     }
 
     /**
@@ -70,6 +77,10 @@ abstract public class Car implements Movable{
      */
     protected void setColor(Color clr) {
         color = clr;
+    }
+
+    protected void setPosition(double[] position) {
+        this.position = position;
     }
 
     public void startEngine() {

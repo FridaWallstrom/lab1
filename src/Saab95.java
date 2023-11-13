@@ -1,6 +1,5 @@
 import java.awt.*;
 
-
 /**
  * A subclass of Car
  */
@@ -12,19 +11,13 @@ public class Saab95 extends Car {
     private boolean turboOn;
 
     /**
-     * The constructor
-     * Calls Car
      * Sets some variables to represent the Saab95
      * and sets the speed to 0
      * @param position is the position where the car starts
      * */
-    protected Saab95(double[] position) {
-        super(position);
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
+    public Saab95(double[] position) {
+        super(position, 2, Color.red, 125, "Saab95");
         turboOn = false;
-        modelName = "Saab95";
         stopEngine();
     }
 

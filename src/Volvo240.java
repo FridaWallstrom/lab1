@@ -5,20 +5,14 @@ import java.awt.*;
  */
 public class Volvo240 extends Car {
 
-    private final static double trimFactor = 1.25;
+    private double trimFactor = 1.25;
 
     /**
-     * The constructor
-     * Calls Car
      * Sets some variables to represent the Volvo240
      * @param position is the position where the car starts
      * */
-    protected Volvo240(double[] position) {
-        super(position);
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
+    public Volvo240(double[] position) {
+        super(position, 4, Color.black, 100, "Volvo240");
         stopEngine();
     }
 
