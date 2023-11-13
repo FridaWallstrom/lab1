@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class CarTransport extends Car {
@@ -41,7 +42,7 @@ public class CarTransport extends Car {
 
     public void loadCar(Car car) {
         if (car.getModelName() != "Cartransportcar" && transportedCars.size() < sizeofRamp) {
-            if () {// kan bara lastas om nära
+            if (Point2D.distance(this.getPosition()[0], this.getPosition()[1], car.getPosition()[0], car.getPosition()[1]) <= 5) {
                 transportedCars.add(car);
             } else {
                 System.out.println("Car too far away");
@@ -51,9 +52,11 @@ public class CarTransport extends Car {
         }
     }
 
-    public Car unloadCar() { // positionen av bilen - nära biltransporten
+    public Car unloadCar() {
         Car last = transportedCars.get(transportedCars.size() - 1);
         transportedCars.remove(transportedCars.size() - 1);
+        double[] arr = {this.getPosition()[0] + 1, this.getPosition()[1] + 1};  //bilarna man släpper av kommer stackas?
+        last.setPosition(arr);
         return last;
     }
 
