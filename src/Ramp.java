@@ -4,13 +4,13 @@ public class Ramp {
 
     private double angle;
 
-    public Ramp(double minAngle, double maxAngle){
+    public Ramp(double minAngle, double maxAngle) {
         this.minAngle = minAngle;
         this.maxAngle = maxAngle;
         this.angle = minAngle;
     }
 
-    public Ramp(){
+    public Ramp() {
         minAngle = 0;
         maxAngle = 90;
         this.angle = minAngle;
@@ -24,7 +24,7 @@ public class Ramp {
         }
     }
 
-    public void lower(){
+    public void lower() {
         angle = minAngle;
     }
 
@@ -36,11 +36,11 @@ public class Ramp {
         }
     }
 
-    public void raise(){
+    public void raise() {
         angle = maxAngle;
     }
 
-    public double getAngle(){
+    public double getAngle() {
         return angle;
     }
 }

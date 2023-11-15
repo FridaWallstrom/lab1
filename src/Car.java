@@ -4,7 +4,7 @@ import java.security.InvalidParameterException;
 /**
  * A class defining a basic car model with speed and direction on a 2d plane.
  */
-abstract public class Car implements Movable{
+abstract public class Car extends Item implements Movable{
     /**
      * The number of doors on the car
      */
@@ -25,10 +25,7 @@ abstract public class Car implements Movable{
      * The car model name
      */
     private final String modelName;
-    /**
-     * The position of the car
-     */
-    private double[] position;
+
     /**
      * The direction of the car
      */
@@ -38,7 +35,7 @@ abstract public class Car implements Movable{
      * The constructor of the class
      */
     public Car(double[] position, int nrDoors, Color color, double enginePower, String modelName) {
-        this.position = position;
+        super(position);
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
@@ -46,7 +43,7 @@ abstract public class Car implements Movable{
     }
 
     /**
-     *  Getters:
+     * Getters:
      */
     public double[] getPosition() {
         return position;
@@ -73,7 +70,7 @@ abstract public class Car implements Movable{
     }
 
     /**
-     *  Setters:
+     * Setters:
      */
     protected void setColor(Color clr) {
         color = clr;
@@ -95,6 +92,7 @@ abstract public class Car implements Movable{
     /**
      * Returns the speedFactor of a car.
      * Can use enginePower
+     *
      * @return Returns the speedFactor
      */
     abstract public double speedFactor();
@@ -123,6 +121,7 @@ abstract public class Car implements Movable{
 
     /**
      * Increases the speed of the car
+     *
      * @param amount should be in the range [0,1] or exception is thrown
      */
     public void gas(double amount) {
@@ -135,6 +134,7 @@ abstract public class Car implements Movable{
 
     /**
      * Decreases the speed of the car
+     *
      * @param amount should be in the range [0,1] or exception is thrown
      */
     public void brake(double amount) {
@@ -157,14 +157,14 @@ abstract public class Car implements Movable{
      * Changes the direction of the car
      */
     public void turnLeft() {
-        direction += Math.PI/2;
+        direction += Math.PI / 2;
     }
 
     /**
      * Changes the direction of the car
      */
     public void turnRight() {
-        direction -= Math.PI/2;
+        direction -= Math.PI / 2;
     }
 }
 
