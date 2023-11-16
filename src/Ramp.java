@@ -29,7 +29,7 @@ public class Ramp {
     }
 
     public void raise(double angle) {
-        if (this.angle + angle < maxAngle) {
+        if (this.angle + angle < maxAngle && angle >= 0) {
             this.angle += angle;
         } else {
             this.angle = maxAngle;

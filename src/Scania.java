@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Scania extends Car {
 
-    private Ramp ramp;
+    public Ramp ramp;
 
 
     public Scania(double[] position) {
@@ -11,7 +11,7 @@ public class Scania extends Car {
     }
 
     public double speedFactor() {
-        if (this.ramp.getAngle() != 0) {
+        if (this.ramp.getAngle() == 0) {
             return enginePower * 0.01;
         }
         return 0;

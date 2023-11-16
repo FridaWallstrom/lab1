@@ -1,6 +1,6 @@
-public class Workshop extends Item{
+public class Workshop<T extends Car> extends Item{
 
-    private Container<Car> container;
+    private Container<T> container;
 
     private double[] position;
 
@@ -9,11 +9,11 @@ public class Workshop extends Item{
         container = new Container<>(capacity);
     }
 
-    public void load(Car car) {
+    public void load(T car) {
         container.load(car);
     }
 
-    public Car unload(int index) {
+    public T unload(int index) {
         return container.unload(index);
     }
 

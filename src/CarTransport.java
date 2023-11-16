@@ -57,5 +57,8 @@ public class CarTransport extends Car {
         System.out.println("Can't unload car, ramp is not lowered");
         return null;
     }
+    public int numberOfItems(){
+        return transportedCars.numberOfItems();
+    }
 
 }
