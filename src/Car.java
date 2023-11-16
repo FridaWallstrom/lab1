@@ -45,9 +45,6 @@ abstract public class Car extends Item implements Movable{
     /**
      * Getters:
      */
-    public double[] getPosition() {
-        return position;
-    }
 
     public int getNrDoors() {
         return nrDoors;
@@ -74,10 +71,6 @@ abstract public class Car extends Item implements Movable{
      */
     protected void setColor(Color clr) {
         color = clr;
-    }
-
-    protected void setPosition(double[] position) {
-        this.position = position;
     }
 
     public void startEngine() {
@@ -149,8 +142,8 @@ abstract public class Car extends Item implements Movable{
      * Changes the position of the car with
      */
     public void move() {
-        position[0] += currentSpeed * Math.cos(direction);
-        position[1] += currentSpeed * Math.sin(direction);
+        getPosition()[0] += currentSpeed * Math.cos(direction);
+        getPosition()[1] += currentSpeed * Math.sin(direction);
     }
 
     /**

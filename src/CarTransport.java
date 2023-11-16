@@ -8,8 +8,8 @@ public class CarTransport extends Car {
     private int range = 5;
 
 
-    public CarTransport(double[] position, int sizeofRamp) {
-        super(position, 2, Color.decode("#da09cd"), 55, "Cartransportcar");
+    public CarTransport(double[] position, int capacity) {
+        super(position, 2, Color.decode("#da09cd"), 55, "CarTransport");
         ramp = new Ramp();
         transportedCars = new ArrayList<Car>();
         this.sizeofRamp = sizeofRamp;
@@ -37,15 +37,13 @@ public class CarTransport extends Car {
         ramp.lower();
     }
 
-    public void loadCar(Car car) {
-        if (car.getModelName() != "Cartransportcar" && transportedCars.size() < sizeofRamp) {
-            if (Point2D.distance(this.getPosition()[0], this.getPosition()[1], car.getPosition()[0], car.getPosition()[1]) <= 5) {
-                transportedCars.add(car);
+    public void load(PassengerCar car) {
+        if (ramp.getAngle() == 0) {
+            if (Point2D.distance(this.getPosition()[0], this.getPosition()[1], car.getPosition()[0], car.getPosition()[1]) <= range) {
+                transportedCars.load((Car) car);
             } else {
                 System.out.println("Car too far away to load");
             }
-        } else {
-            System.out.println("Couldn't add car :(");
         }
     }
 
