@@ -11,8 +11,7 @@ public class CarTransport extends Car {
     public CarTransport(double[] position, int capacity) {
         super(position, 2, Color.decode("#da09cd"), 55, "CarTransport");
         ramp = new Ramp();
-        transportedCars = new ArrayList<Car>();
-        this.sizeofRamp = sizeofRamp;
+        transportedCars = new Container<>(capacity);
     }
 
     public void move() {
