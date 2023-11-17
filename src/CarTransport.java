@@ -39,10 +39,7 @@ public class CarTransport extends Car {
 
     public void load(PassengerCar car) {
         if (ramp.getAngle() == 0) {
-            if (Point2D.distance(this.getPosition()[0], this.getPosition()[1], car.getPosition()[0], car.getPosition()[1]) <= range) {
-                transportedCars.load((Car) car);
-            } else {
-                System.out.println("Car too far away to load");
+                transportedCars.load(car);
             }
         }
 

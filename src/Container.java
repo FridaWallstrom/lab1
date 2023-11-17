@@ -16,6 +16,9 @@ public class Container<T extends Item> {
         this.range = range;
     }
 
+    /**
+     * Adds an item to the container, if it isn't full
+     */
     public void load(T item) {
         if (Point2D.distance(position[0], position[1], item.getPosition()[0], item.getPosition()[1]) <= range) {
             if (containedItems.size() < capacity) {
@@ -27,6 +30,11 @@ public class Container<T extends Item> {
         System.out.println("Couldn't add car :(");
     }
 
+    /**
+     * Removes an item from the container
+     * @param index, the position of which an item should be removed from the container
+     * @return returns the removed item
+     */
     public T unload(int index) {
         T last = containedItems.get(index - 1);
         containedItems.remove(index - 1);

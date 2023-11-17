@@ -18,6 +18,10 @@ public class Workshop<T extends Car> extends Item{
         container.load(car);
     }
 
+    /**
+     * unloads a car from a certain index
+     * @return
+     */
     public T unload(int index) {
         return container.unload(index);
     }
