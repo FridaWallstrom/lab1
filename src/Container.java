@@ -39,8 +39,10 @@ public class Container<T extends Item> {
      * @return returns the removed item
      */
     public T unload(int index) {
+        double[] unloadPosition = {position[0] + index, position[1]};
         T last = containedItems.get(index - 1);
         containedItems.remove(index - 1);
+        last.setPosition(unloadPosition);
         return last;
     }
 

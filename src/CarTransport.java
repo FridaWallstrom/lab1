@@ -47,9 +47,7 @@ public class CarTransport extends Car {
     public Car unload() {
         if (ramp.getAngle() == 0) {
             int index = transportedCars.numberOfItems();
-            double[] unloadPosition = {this.getPosition()[0] + index, this.getPosition()[1]};
             Car last = transportedCars.unload(index);
-            last.setPosition(unloadPosition);
             return last;
         }
         System.out.println("Can't unload car, ramp is not lowered");

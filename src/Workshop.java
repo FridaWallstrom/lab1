@@ -15,7 +15,7 @@ public class Workshop<T extends Car> extends Item{
     public Workshop(double[] position, int capacity, int range) {
         super(position);
         this.range = range;
-        container = new Container<>(capacity, position, range);
+        container = new Container<T>(capacity, position, range);
     }
 
     /**

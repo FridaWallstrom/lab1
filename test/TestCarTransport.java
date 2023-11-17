@@ -1,4 +1,5 @@
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -28,4 +29,12 @@ public class TestCarTransport {
         assertEquals(1, car.getPosition()[0], 0);
         assertEquals(0, car.getPosition()[1], 0);
     }
+    /* This test will generate a compile error = test successful!
+    @Test
+    public void testRaiseByAngle(){
+        try{
+        //ct.raiseRamp(5);
+        assertTrue(Boolean.FALSE);
+        } catch (Exception e){assertTrue(Boolean.TRUE);}
+    }*/
 }
