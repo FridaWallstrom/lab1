@@ -19,7 +19,7 @@ public class CarTransport extends Car {
     }
 
     public double speedFactor() {
-        if (this.ramp.getAngle() != 0) {
+        if (this.ramp.getAngle() == 90) {
             return enginePower * 0.02;
         }
         return 0;

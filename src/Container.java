@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 public class Container<T extends Item> {
 
+    /**
+     * A list of type T(which needs to extend Item)
+     */
     private ArrayList<T> containedItems;
     private int capacity;
     double[] position;
@@ -41,6 +44,10 @@ public class Container<T extends Item> {
         return last;
     }
 
+    /**
+     * Updates the position of the objects inside the container to a new position
+     * @param position the new position
+     */
     public void updatePosition(double[] position) {
         for (T item : containedItems) {
             item.setPosition(position);
@@ -48,6 +55,10 @@ public class Container<T extends Item> {
         this.position = position;
     }
 
+    /**
+     * returns the number of items in the container
+     * @return the number of items in the container
+     */
     public int numberOfItems() {
         return containedItems.size();
     }

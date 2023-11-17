@@ -23,9 +23,7 @@ public class Scania extends Car {
     }
 
     public void lowerRamp(double angle) {
-        if (getCurrentSpeed() == 0) {
-            ramp.lower(angle);
-        }
+        ramp.lower(angle);
     }
 
 }
