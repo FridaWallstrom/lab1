@@ -8,7 +8,7 @@ public class TestContainer {
 
     @Before
     public void init(){
-        itemContainer = new Container<Item>(5);
+        itemContainer = new Container<Item>(5, new double[]{0,0},5);
     }
 
 
@@ -19,7 +19,7 @@ public class TestContainer {
 
     @Test
     public void testLoad() {
-        Item items = new Item(new double[]{10,10});
+        Item items = new Item(new double[]{1,2});
         itemContainer.load(items);
         assertEquals(1, itemContainer.numberOfItems(),0);
     }

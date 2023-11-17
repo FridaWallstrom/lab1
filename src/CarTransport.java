@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 public class CarTransport extends Car {
 
@@ -11,7 +10,7 @@ public class CarTransport extends Car {
     public CarTransport(double[] position, int capacity) {
         super(position, 2, Color.decode("#da09cd"), 55, "CarTransport");
         ramp = new Ramp();
-        transportedCars = new Container<>(capacity);
+        transportedCars = new Container<>(capacity, position, range);
     }
 
     public void move() {
@@ -33,7 +32,9 @@ public class CarTransport extends Car {
     }
 
     public void lowerRamp() {
-        ramp.lower();
+        if (getCurrentSpeed() == 0) {
+            ramp.lower();
+        }
     }
 
     public void load(PassengerCar car) {
@@ -44,7 +45,7 @@ public class CarTransport extends Car {
                 System.out.println("Car too far away to load");
             }
         }
-    }
+
 
     public Car unload() {
         if (ramp.getAngle() == 0) {
