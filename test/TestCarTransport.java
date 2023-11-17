@@ -5,15 +5,18 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCarTransport {
     public CarTransport ct;
+
     @Before
     public void init(){
         ct = new CarTransport(new double[] {0,0}, 5);
     }
+
     @Test
     public void testSpeedFactor() {
         ct.raiseRamp();
         assertEquals(1.1, ct.speedFactor(), 0);
     }
+
     @Test
     public void testLoadIfPositionOutOfRange(){
         Saab95 car = new Saab95(new double[] {10, 10});
